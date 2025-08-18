@@ -29,6 +29,7 @@
   <button onclick="generateDeckWTR(true)">Generate WTR UNL Sealed Pool with Drone</button>
   <button onclick="generateDeckWTR(false)">Generate WTR UNL Sealed Pool without Drone</button>
   <button onclick="generateDeckARC()">Generate ARC 1st Sealed Pool</button>
+  <button onclick="generateDeckMPG()">Generate Mastery Pack Guardian Crack-Shuffle-Play</button>
   <button onclick="copyToClipboard()" style="float: right">Copy to Clipboard</button>
   <a id="fabraryLink" href="https://fabrary.net/decks?tab=import" target="_blank"><button alt="Import to Fabrary" style="padding: 0.5rem; float: right"><img style="height: 1.9rem" src="https://prod-content.fabrary.io/logos/light-small.webp"></button></a>
   <pre id="output"></pre>
@@ -125,7 +126,15 @@
     const ARC_CLASS_EQUIPMENT = ["Achilles Accelerator", "Bull's Eye Bracers", "Crown of Dichotomy", "Robe of Rapture"];
     const ARC_GENERIC_EQUIPMENT = ["Talismanic Lens", "Vest of the First Fist", "Bracers of Belief", "Mage Master Boots", "Nullrune Hood", "Nullrune Robe", "Nullrune Gloves", "Nullrune Boots"];
     const ARC_COMMON_EQUIPMENT = [...ARC_CLASS_EQUIPMENT, ...ARC_GENERIC_EQUIPMENT];
-      
+
+    // --- MPG CARD LIST ---
+    // Note that the full list of MPG cards are not included, only the ones relevant for CSP
+    const MPG_COMMON_EQUIPMENT = ["Helm of Isen's Peak", "Richter Scale", "Gauntlet of Boulderhold", "Craterhoof", "Hoarding of Denial", "Rotten Old Buckler", "Steelbraid Buckler", "Tremor of Resistance", "Hope Merchant's Hood", "Heartened Cross Strap", "Goliath Gauntlet", "Time Skippers", "Ironrot Helm", "Ironrot Plate", "Ironrot Gauntlet", "Ironrot Legs"];
+    const MPG_RARE_EQUIPMENT = ["Sunkwater Lookout", "Sunkwater Exoshell", "Sunkwater Pincers", "Sunkwater Scalers"];
+    const MPG_MAJESTIC = ["Break Stature (yellow)", "Clash of Bravado (yellow)", "Headbutt (blue)", "Pec Perfect (red)", "Put 'em in Their Place (red)", "Solid Ground (blue)", "Leave a Dent (blue)", "Visit Anvilheim (blue)", "Daily Grind (blue)", "Seismic Shudder (blue)", "Seismic Eruption (yellow)", "Test of Iron Grip (red)", "Call for Backup (red)", "Captain of the Guard (blue)", "Fearless Confrontation (blue)"];
+    const MPG_RARE = ["Blinding of the Old Ones (red)", "Disenchantment of the Old Ones (red)", "Smelting of the Old Ones (red)", "Annexation of All Things Known (yellow)", "Annexation of Grandeur (yellow)", "Annexation of the Forge (yellow)", "Fault Line (red)", "Hostile Encroachment (red)", "Renounce Grandeur (red)", "Aftershock (red)", "Aftershock (yellow)", "Aftershock (blue)", "Little Big Foot (red)", "Little Big Foot (yellow)", "Little Big Foot (blue)", "Macho Grande (red)", "Macho Grande (yellow)", "Macho Grande (blue)", "Draw a Crowd (blue)", "Promising Terrain (blue)", "Tectonic Instability (blue)", "Clash of Heads (yellow)", "Clash of Chests (yellow)","Clash of Arms (yellow)","Clash of Legs (yellow)", "Clash of Shields (yellow)"];
+    const MPG_COMMON = ["Buckling Blow (red)", "Buckling Blow (yellow)", "Buckling Blow (blue)", "Cartilage Crush (red)", "Cartilage Crush (yellow)", "Cartilage Crush (blue)", "Chokeslam (red)", "Chokeslam (yellow)", "Chokeslam (blue)", "Clash of Mountains (red)", "Clash of Mountains (yellow)", "Clash of Mountains (blue)", "Crush Confidence (red)", "Crush Confidence (yellow)", "Crush Confidence (blue)", "Crush the Weak (red)", "Crush the Weak (yellow)", "Crush the Weak (blue)", "Debilitate (red)", "Debilitate (yellow)", "Debilitate (blue)", "Disable (red)", "Disable (yellow)", "Disable (blue)", "Flatten the Field (red)", "Flatten the Field (yellow)", "Flatten the Field (blue)", "Grind them Down (red)", "Grind them Down (yellow)", "Grind them Down (blue)", "Rubble Raiser (red)", "Rubble Raiser (yellow)", "Rubble Raiser (blue)", "Thump (red)", "Thump (yellow)", "Thump (blue)", "Thunder Quake (red)", "Thunder Quake (yellow)", "Thunder Quake (blue)", "Overswing (red)", "Overswing (yellow)", "Overswing (blue)", "Seismic Stir (red)", "Seismic Stir (yellow)", "Seismic Stir (blue)", "Embolden (red)", "Embolden (yellow)", "Embolden (blue)", "Emerging Power (red)", "Emerging Power (yellow)", "Emerging Power (blue)", "Geyser of Seismic Stirrings (red)", "Geyser of Seismic Stirrings (yellow)", "Geyser of Seismic Stirrings (blue)", "Stonewall Confidence (red)", "Stonewall Confidence (yellow)", "Stonewall Confidence (blue)", "Crash and Bash (red)", "Crash and Bash (yellow)", "Crash and Bash (blue)"];
+    
     // --------------
     function cleanCardName(card) {
       return card.replaceAll(' ', '-').replaceAll(`'`, '').replaceAll(`(`, '').replaceAll(`)`, '').toLowerCase();
@@ -363,6 +372,77 @@
       });
     }
 
+    //-----------------------------------------
+    function generateDeckMPG() {
+          let deck = [];
+          let equipment = [];
+    
+          for (let i = 0; i < 3; i++) {
+
+            // Maindeck Cards
+            deck.push(...sample(MPG_COMMON, 9));
+            // Estimate 1 in 4 packs has a Majestic
+            const rareRoll = Math.random();
+              if (rareRoll < 1 / 4) {
+                deck.push(...sample(MPG_MAJESTIC, 1));
+              } else {
+                deck.push(...sample(MPG_RARE, 1));
+              }
+
+            // Equipment
+            const equipRoll = Math.random();
+            // 1 in 4 packs has a rare ("Sunkwater") in the equip slot. This estimate may be inaccurate.
+            if (equipRoll < 1 / 4) {
+              equipment.push(...sample(MPG_RARE_EQUIPMENT, 1));
+              } else {
+                equipment.push(...sample(MPG_COMMON_EQUIPMENT, 1));
+              }
+            
+          }
+              
+          const countCards = list =>
+            list.reduce((acc, card) => {
+              acc[card] = (acc[card] || 0) + 1;
+              return acc;
+            }, {});
+    
+          const output = [];
+          const fabraryOutput = [];
+          const now = new Date();
+          const formattedDate = now.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
+          const timestamp = now.toISOString().slice(0, 19).replace(/[:T]/g, "_");
+    
+          output.push("Player Name / ID\tMPG_CSP");
+          output.push(`Date\t${formattedDate}`);
+          output.push("Event\tMPG Crack Shuffle Play Sample");
+          output.push("Format\tSealed Deck");
+          fabraryOutput.push("&name=MPG_CSP&format=sealed");
+          output.push("Hero / Class\tValda, Brightaxe (Guardian)");
+          fabraryOutput.push("MPG002");
+          output.push("Result\t1st\n");
+          output.push("\nArena cards\n1x High Riser\n");
+          fabraryOutput.push("MPG003"");
+          
+          output.push("Equipment:");
+          for (const [card, qty] of Object.entries(countCards(equipment))) {
+            output.push(`${qty}x ${card}`);
+            fabraryOutput.push(...Array(qty).fill(cleanCardName(card)));
+          }
+    
+          output.push("\nDeck cards:");
+          for (const [card, qty] of Object.entries(countCards(deck))) {
+            output.push(`${qty}x ${card}`);
+            fabraryOutput.push(...Array(qty).fill(cleanCardName(card)));
+          }
+    
+          document.getElementById("output").textContent = output.join("\n");
+          document.getElementById("fabraryLink").href = "https://fabrary.net/decks?tab=import".concat(fabraryOutput.join("&cards="));
+        }
+      
+    }
+
+
+    
     function copyToClipboard() {
       const output = document.getElementById("output").textContent;
       navigator.clipboard.writeText(output).then(() => {
