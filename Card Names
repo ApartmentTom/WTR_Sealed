@@ -256,3 +256,298 @@ const COMMON = [
   "Zipper Hit (yellow)",
   "Zipper Hit (blue)"
 ];
+// --- OMN CARD LIST ---
+// Maps card names with pitch indicator to Fabrary OMN### print codes.
+// Names with " (red)/(yellow)/(blue)" suffix represent pitch 1/2/3 respectively.
+// Names without a pitch suffix are single-pitch (or equipment/non-pitched).
+const OMN_PRINT_CODES = {
+  // Illusionist commons
+  "Auric Shards (red)": "OMN027", "Auric Shards (yellow)": "OMN028", "Auric Shards (blue)": "OMN029",
+  "Circular Flowtide (yellow)": "OMN033",
+  "Cosmic Duality (red)": "OMN015", "Cosmic Duality (yellow)": "OMN016", "Cosmic Duality (blue)": "OMN017",
+  "Crackle from Afar (blue)": "OMN036",
+  "Ebbing Arcstride (red)": "OMN018", "Ebbing Arcstride (yellow)": "OMN019", "Ebbing Arcstride (blue)": "OMN020",
+  "Elliptical Conflux (yellow)": "OMN034",
+  "Fleeing Starbreeze (blue)": "OMN037",
+  "Holo Shield (red)": "OMN030", "Holo Shield (yellow)": "OMN031", "Holo Shield (blue)": "OMN032",
+  "Nebulus Cycle (yellow)": "OMN035",
+  "Nourishing Glow (blue)": "OMN038",
+  "Pulsing Cardia (red)": "OMN021", "Pulsing Cardia (yellow)": "OMN022", "Pulsing Cardia (blue)": "OMN023",
+  "Shattering Flowtide (red)": "OMN024", "Shattering Flowtide (yellow)": "OMN025", "Shattering Flowtide (blue)": "OMN026",
+
+  // Runeblade commons
+  "Destructive Fleetfoot (red)": "OMN062", "Destructive Fleetfoot (yellow)": "OMN063", "Destructive Fleetfoot (blue)": "OMN064",
+  "Electryn Joltstep (red)": "OMN080", "Electryn Joltstep (yellow)": "OMN081", "Electryn Joltstep (blue)": "OMN082",
+  "Path of Same Ends (red)": "OMN065", "Path of Same Ends (yellow)": "OMN066", "Path of Same Ends (blue)": "OMN067",
+  "Quick Succession (red)": "OMN083", "Quick Succession (yellow)": "OMN084", "Quick Succession (blue)": "OMN085",
+  "Rush of Power (red)": "OMN068", "Rush of Power (yellow)": "OMN069", "Rush of Power (blue)": "OMN070",
+  "Singeing Flowstride (red)": "OMN071", "Singeing Flowstride (yellow)": "OMN072", "Singeing Flowstride (blue)": "OMN073",
+  "Stunning Swipe (red)": "OMN074", "Stunning Swipe (yellow)": "OMN075", "Stunning Swipe (blue)": "OMN076",
+  "Voltbound Duality (red)": "OMN077", "Voltbound Duality (yellow)": "OMN078", "Voltbound Duality (blue)": "OMN079",
+
+  // Wizard commons
+  "Comet Collision (red)": "OMN109", "Comet Collision (yellow)": "OMN110", "Comet Collision (blue)": "OMN111",
+  "Constella Contemplation (yellow)": "OMN130",
+  "Constella Flowslide (yellow)": "OMN131",
+  "Constella Uplift (yellow)": "OMN132",
+  "Cosmic Suture (red)": "OMN127", "Cosmic Suture (yellow)": "OMN128", "Cosmic Suture (blue)": "OMN129",
+  "Enion Surge (red)": "OMN112", "Enion Surge (yellow)": "OMN113", "Enion Surge (blue)": "OMN114",
+  "Lightning Overload (red)": "OMN115", "Lightning Overload (yellow)": "OMN116", "Lightning Overload (blue)": "OMN117",
+  "Meteoric Impact (red)": "OMN118", "Meteoric Impact (yellow)": "OMN119", "Meteoric Impact (blue)": "OMN120",
+  "Nebula Duality (red)": "OMN121", "Nebula Duality (yellow)": "OMN122", "Nebula Duality (blue)": "OMN123",
+  "Tap Lessons Past (red)": "OMN124", "Tap Lessons Past (yellow)": "OMN125", "Tap Lessons Past (blue)": "OMN126",
+
+  // Lightning/Generic commons
+  "Astral Assault (red)": "OMN160", "Astral Assault (yellow)": "OMN161", "Astral Assault (blue)": "OMN162",
+  "Brush Off (red)": "OMN222", "Brush Off (yellow)": "OMN223", "Brush Off (blue)": "OMN224",
+  "Calmveil of Volthaven (red)": "OMN184", "Calmveil of Volthaven (yellow)": "OMN185", "Calmveil of Volthaven (blue)": "OMN186",
+  "Chromatic Refinement (red)": "OMN193", "Chromatic Refinement (yellow)": "OMN194", "Chromatic Refinement (blue)": "OMN195",
+  "Conflicting Thoughts (red)": "OMN219", "Conflicting Thoughts (yellow)": "OMN220", "Conflicting Thoughts (blue)": "OMN221",
+  "Cosmic Flare (red)": "OMN187",
+  "Electrolyze (red)": "OMN163", "Electrolyze (yellow)": "OMN164", "Electrolyze (blue)": "OMN165",
+  "Flittering Forcefield (red)": "OMN181", "Flittering Forcefield (yellow)": "OMN182", "Flittering Forcefield (blue)": "OMN183",
+  "Flittering Spike (red)": "OMN166", "Flittering Spike (yellow)": "OMN167", "Flittering Spike (blue)": "OMN168",
+  "Glide Through Starlight (red)": "OMN169", "Glide Through Starlight (yellow)": "OMN170", "Glide Through Starlight (blue)": "OMN171",
+  "Heaven's Claws (red)": "OMN172", "Heaven's Claws (yellow)": "OMN174", "Heaven's Claws (blue)": "OMN173",
+  "Sigil of Astral Flow (blue)": "OMN199",
+  "Sigil of Lightning (blue)": "OMN200",
+  "Spellbane Sigil (blue)": "OMN201",
+  "Starlight Road (blue)": "OMN189",
+  "Starworld Warning (yellow)": "OMN188",
+  "Stellar Glide (red)": "OMN175", "Stellar Glide (yellow)": "OMN176", "Stellar Glide (blue)": "OMN177",
+  "Stormshard (red)": "OMN190",
+  "Stormshatter (yellow)": "OMN191",
+  "Stormwhirl (blue)": "OMN192",
+  "Thunderous Retort (red)": "OMN196", "Thunderous Retort (yellow)": "OMN197", "Thunderous Retort (blue)": "OMN198",
+  "Volatile Fluxor (red)": "OMN178", "Volatile Fluxor (yellow)": "OMN179", "Volatile Fluxor (blue)": "OMN180",
+
+  // Common equipment
+  "Constella Tiara": "OMN142",
+  "Constella Waves": "OMN097",
+  "Laced Lightning": "OMN144",
+  "Starflow Robes": "OMN143",
+  "Snap Fingers": "OMN050",
+  "Fingers of Fragmentation": "OMN039",
+  "Boots of Astral Sanctuary": "OMN212",
+  "Gloves of Astral Sanctuary": "OMN211",
+  "Helm of Astral Sanctuary": "OMN209",
+  "Robe of Astral Sanctuary": "OMN210",
+  "Seeker's Gilet": "OMN206",
+  "Seeker's Hood": "OMN205",
+  "Seeker's Leggings": "OMN208",
+  "Seeker's Mitts": "OMN207",
+
+  // Illusionist rares
+  "Blink of an Eye (red)": "OMN006",
+  "Clear Conscience (red)": "OMN041", "Clear Conscience (yellow)": "OMN042", "Clear Conscience (blue)": "OMN043",
+  "Corrosive Space Dust (red)": "OMN012", "Corrosive Space Dust (yellow)": "OMN013", "Corrosive Space Dust (blue)": "OMN014",
+  "Erode Authority (red)": "OMN044", "Erode Authority (yellow)": "OMN045", "Erode Authority (blue)": "OMN046",
+  "Fraying Lifeforce (red)": "OMN007",
+  "Polarus Pulse Ray (red)": "OMN009", "Polarus Pulse Ray (yellow)": "OMN010", "Polarus Pulse Ray (blue)": "OMN011",
+  "Scattering Conflux (red)": "OMN008",
+
+  // Runeblade rares
+  "Arcanic Cunning (red)": "OMN088", "Arcanic Cunning (yellow)": "OMN089", "Arcanic Cunning (blue)": "OMN090",
+  "Dashing Flashfoot (yellow)": "OMN053",
+  "Electryn Mindmeld (yellow)": "OMN054",
+  "Leech Memory (red)": "OMN091",
+  "Leech Renown (red)": "OMN092",
+  "Leech Vitality (red)": "OMN093",
+  "Mercurial Skies (red)": "OMN059", "Mercurial Skies (yellow)": "OMN060", "Mercurial Skies (blue)": "OMN061",
+  "Prophetic Quickstep (yellow)": "OMN055",
+  "Stinging Sprite (red)": "OMN056", "Stinging Sprite (yellow)": "OMN057", "Stinging Sprite (blue)": "OMN058",
+
+  // Wizard rares
+  "Aethersling (red)": "OMN134",
+  "Arc Ramp (red)": "OMN100", "Arc Ramp (yellow)": "OMN101", "Arc Ramp (blue)": "OMN102",
+  "Core Reaction (red)": "OMN103", "Core Reaction (yellow)": "OMN104", "Core Reaction (blue)": "OMN105",
+  "Flash Bolt (red)": "OMN106", "Flash Bolt (yellow)": "OMN107", "Flash Bolt (blue)": "OMN108",
+  "Haven Veil (red)": "OMN137", "Haven Veil (yellow)": "OMN138", "Haven Veil (blue)": "OMN139",
+  "Nucleus Aetherbolt (red)": "OMN135",
+  "Turn to Mindfire (red)": "OMN136",
+
+  // Lightning/Generic rares
+  "Beckoning Brilliance (red)": "OMN148",
+  "Flowing Stormstrike (red)": "OMN152",
+  "Flowshard Elemental (red)": "OMN149",
+  "Flow Through (blue)": "OMN158",
+  "Lightning Form (red)": "OMN150",
+  "Livewire Press (red)": "OMN159",
+  "Meteoric Rise (red)": "OMN153",
+  "Ominous Aggression (red)": "OMN216",
+  "Ominous Excavation (blue)": "OMN217",
+  "Ominous Respite (yellow)": "OMN218",
+  "Rift Breaker (red)": "OMN155", "Rift Breaker (yellow)": "OMN156", "Rift Breaker (blue)": "OMN157",
+  "Visionary of Orbits (red)": "OMN151",
+  "Voltic Impact (red)": "OMN154",
+
+  // Majestics
+  "Arcanic Reproach (blue)": "OMN052",
+  "Astral Bridge (red)": "OMN098",
+  "Browbeat (blue)": "OMN213",
+  "Caress of the Reaper (red)": "OMN087",
+  "Echoflash (yellow)": "OMN099",
+  "Flicker Reality (blue)": "OMN005",
+  "Fractal Creation (blue)": "OMN040",
+  "Step Between (red)": "OMN214",
+  "Tempestuous Kiss (red)": "OMN051",
+  "Tempt Over (yellow)": "OMN215",
+  "Tome of Quandaries (blue)": "OMN133",
+  "Unwinding Finality (red)": "OMN004",
+};
+
+const OMN_ILLUSIONIST_COMMON = [
+  "Auric Shards (red)", "Auric Shards (yellow)", "Auric Shards (blue)",
+  "Circular Flowtide (yellow)",
+  "Cosmic Duality (red)", "Cosmic Duality (yellow)", "Cosmic Duality (blue)",
+  "Crackle from Afar (blue)",
+  "Ebbing Arcstride (red)", "Ebbing Arcstride (yellow)", "Ebbing Arcstride (blue)",
+  "Elliptical Conflux (yellow)",
+  "Fleeing Starbreeze (blue)",
+  "Holo Shield (red)", "Holo Shield (yellow)", "Holo Shield (blue)",
+  "Nebulus Cycle (yellow)",
+  "Nourishing Glow (blue)",
+  "Pulsing Cardia (red)", "Pulsing Cardia (yellow)", "Pulsing Cardia (blue)",
+  "Shattering Flowtide (red)", "Shattering Flowtide (yellow)", "Shattering Flowtide (blue)",
+];
+
+const OMN_RUNEBLADE_COMMON = [
+  "Destructive Fleetfoot (red)", "Destructive Fleetfoot (yellow)", "Destructive Fleetfoot (blue)",
+  "Electryn Joltstep (red)", "Electryn Joltstep (yellow)", "Electryn Joltstep (blue)",
+  "Path of Same Ends (red)", "Path of Same Ends (yellow)", "Path of Same Ends (blue)",
+  "Quick Succession (red)", "Quick Succession (yellow)", "Quick Succession (blue)",
+  "Rush of Power (red)", "Rush of Power (yellow)", "Rush of Power (blue)",
+  "Singeing Flowstride (red)", "Singeing Flowstride (yellow)", "Singeing Flowstride (blue)",
+  "Stunning Swipe (red)", "Stunning Swipe (yellow)", "Stunning Swipe (blue)",
+  "Voltbound Duality (red)", "Voltbound Duality (yellow)", "Voltbound Duality (blue)",
+];
+
+const OMN_WIZARD_COMMON = [
+  "Comet Collision (red)", "Comet Collision (yellow)", "Comet Collision (blue)",
+  "Constella Contemplation (yellow)",
+  "Constella Flowslide (yellow)",
+  "Constella Uplift (yellow)",
+  "Cosmic Suture (red)", "Cosmic Suture (yellow)", "Cosmic Suture (blue)",
+  "Enion Surge (red)", "Enion Surge (yellow)", "Enion Surge (blue)",
+  "Lightning Overload (red)", "Lightning Overload (yellow)", "Lightning Overload (blue)",
+  "Meteoric Impact (red)", "Meteoric Impact (yellow)", "Meteoric Impact (blue)",
+  "Nebula Duality (red)", "Nebula Duality (yellow)", "Nebula Duality (blue)",
+  "Tap Lessons Past (red)", "Tap Lessons Past (yellow)", "Tap Lessons Past (blue)",
+];
+
+const OMN_LIGHTNING_GENERIC_COMMON = [
+  "Astral Assault (red)", "Astral Assault (yellow)", "Astral Assault (blue)",
+  "Brush Off (red)", "Brush Off (yellow)", "Brush Off (blue)",
+  "Calmveil of Volthaven (red)", "Calmveil of Volthaven (yellow)", "Calmveil of Volthaven (blue)",
+  "Chromatic Refinement (red)", "Chromatic Refinement (yellow)", "Chromatic Refinement (blue)",
+  "Conflicting Thoughts (red)", "Conflicting Thoughts (yellow)", "Conflicting Thoughts (blue)",
+  "Cosmic Flare (red)",
+  "Electrolyze (red)", "Electrolyze (yellow)", "Electrolyze (blue)",
+  "Flittering Forcefield (red)", "Flittering Forcefield (yellow)", "Flittering Forcefield (blue)",
+  "Flittering Spike (red)", "Flittering Spike (yellow)", "Flittering Spike (blue)",
+  "Glide Through Starlight (red)", "Glide Through Starlight (yellow)", "Glide Through Starlight (blue)",
+  "Heaven's Claws (red)", "Heaven's Claws (yellow)", "Heaven's Claws (blue)",
+  "Sigil of Astral Flow (blue)",
+  "Sigil of Lightning (blue)",
+  "Spellbane Sigil (blue)",
+  "Starlight Road (blue)",
+  "Starworld Warning (yellow)",
+  "Stellar Glide (red)", "Stellar Glide (yellow)", "Stellar Glide (blue)",
+  "Stormshard (red)",
+  "Stormshatter (yellow)",
+  "Stormwhirl (blue)",
+  "Thunderous Retort (red)", "Thunderous Retort (yellow)", "Thunderous Retort (blue)",
+  "Volatile Fluxor (red)", "Volatile Fluxor (yellow)", "Volatile Fluxor (blue)",
+];
+
+const OMN_COMMON_EQUIPMENT = [
+  "Constella Tiara",
+  "Constella Waves",
+  "Laced Lightning",
+  "Starflow Robes",
+  "Snap Fingers",
+  "Fingers of Fragmentation",
+  "Boots of Astral Sanctuary",
+  "Gloves of Astral Sanctuary",
+  "Helm of Astral Sanctuary",
+  "Robe of Astral Sanctuary",
+  "Seeker's Gilet",
+  "Seeker's Hood",
+  "Seeker's Leggings",
+  "Seeker's Mitts",
+];
+
+const OMN_ILLUSIONIST_RARE = [
+  "Blink of an Eye (red)",
+  "Clear Conscience (red)", "Clear Conscience (yellow)", "Clear Conscience (blue)",
+  "Corrosive Space Dust (red)", "Corrosive Space Dust (yellow)", "Corrosive Space Dust (blue)",
+  "Erode Authority (red)", "Erode Authority (yellow)", "Erode Authority (blue)",
+  "Fraying Lifeforce (red)",
+  "Polarus Pulse Ray (red)", "Polarus Pulse Ray (yellow)", "Polarus Pulse Ray (blue)",
+  "Scattering Conflux (red)",
+];
+
+const OMN_RUNEBLADE_RARE = [
+  "Arcanic Cunning (red)", "Arcanic Cunning (yellow)", "Arcanic Cunning (blue)",
+  "Dashing Flashfoot (yellow)",
+  "Electryn Mindmeld (yellow)",
+  "Leech Memory (red)",
+  "Leech Renown (red)",
+  "Leech Vitality (red)",
+  "Mercurial Skies (red)", "Mercurial Skies (yellow)", "Mercurial Skies (blue)",
+  "Prophetic Quickstep (yellow)",
+  "Stinging Sprite (red)", "Stinging Sprite (yellow)", "Stinging Sprite (blue)",
+];
+
+const OMN_WIZARD_RARE = [
+  "Aethersling (red)",
+  "Arc Ramp (red)", "Arc Ramp (yellow)", "Arc Ramp (blue)",
+  "Core Reaction (red)", "Core Reaction (yellow)", "Core Reaction (blue)",
+  "Flash Bolt (red)", "Flash Bolt (yellow)", "Flash Bolt (blue)",
+  "Haven Veil (red)", "Haven Veil (yellow)", "Haven Veil (blue)",
+  "Nucleus Aetherbolt (red)",
+  "Turn to Mindfire (red)",
+];
+
+const OMN_GENERIC_RARE = [
+  "Beckoning Brilliance (red)",
+  "Flowing Stormstrike (red)",
+  "Flowshard Elemental (red)",
+  "Flow Through (blue)",
+  "Lightning Form (red)",
+  "Livewire Press (red)",
+  "Meteoric Rise (red)",
+  "Ominous Aggression (red)",
+  "Ominous Excavation (blue)",
+  "Ominous Respite (yellow)",
+  "Rift Breaker (red)", "Rift Breaker (yellow)", "Rift Breaker (blue)",
+  "Visionary of Orbits (red)",
+  "Voltic Impact (red)",
+];
+
+const OMN_ALL_RARES = [...OMN_ILLUSIONIST_RARE, ...OMN_RUNEBLADE_RARE, ...OMN_WIZARD_RARE, ...OMN_GENERIC_RARE];
+
+const OMN_MAJESTIC = [
+  "Arcanic Reproach (blue)",
+  "Astral Bridge (red)",
+  "Browbeat (blue)",
+  "Caress of the Reaper (red)",
+  "Echoflash (yellow)",
+  "Flicker Reality (blue)",
+  "Fractal Creation (blue)",
+  "Step Between (red)",
+  "Tempestuous Kiss (red)",
+  "Tempt Over (yellow)",
+  "Tome of Quandaries (blue)",
+  "Unwinding Finality (red)",
+];
+
+// Foil pool — uniform sample across every non-equipment OMN card
+const OMN_FOIL_POOL = [
+  ...OMN_ILLUSIONIST_COMMON,
+  ...OMN_RUNEBLADE_COMMON,
+  ...OMN_WIZARD_COMMON,
+  ...OMN_LIGHTNING_GENERIC_COMMON,
+  ...OMN_ALL_RARES,
+  ...OMN_MAJESTIC,
+];
