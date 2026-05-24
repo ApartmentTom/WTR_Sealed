@@ -735,7 +735,7 @@ const OMN_FOIL_POOL = [
           document.getElementById("fabraryLink").href = "https://fabrary.net/decks?tab=import".concat(fabraryOutput.join("&cards="));
         }
     
-    function generateDeckOMN() {
+  function generateDeckOMN() {
   fetch('https://ipinfo.io/json')
   .then(response => response.json())
   .then(data => {
@@ -752,14 +752,39 @@ const OMN_FOIL_POOL = [
         OMN_WIZARD_COMMON,
       ];
 
+      // Combined illu+rune+wiz pool for the "3 any class" slot
+      const OMN_ANY_CLASS_COMMON = [
+        ...OMN_ILLUSIONIST_COMMON,
+        ...OMN_RUNEBLADE_COMMON,
+        ...OMN_WIZARD_COMMON,
+      ];
+
+      // Full common pool for the "1 anything" wildcard slot (incl. equipment + lightning/generic)
+      const OMN_ANY_COMMON = [
+        ...OMN_ILLUSIONIST_COMMON,
+        ...OMN_RUNEBLADE_COMMON,
+        ...OMN_WIZARD_COMMON,
+        ...OMN_LIGHTNING_GENERIC_COMMON,
+        ...OMN_COMMON_EQUIPMENT,
+      ];
+
       // 8 packs per OMN sealed pool
       for (let i = 0; i < 8; i++) {
-        // 2 from each class pool + 1 wild class = 7 class commons
+        // 1 guaranteed from each class pool
         OMN_CLASS_POOLS.forEach(pool => {
-          deck.push(...sample(pool, 2));
+          deck.push(...sample(pool, 1));
         });
-        const wildClassIndex = Math.floor(Math.random() * OMN_CLASS_POOLS.length);
-        deck.push(...sample(OMN_CLASS_POOLS[wildClassIndex], 1));
+
+        // 3 wild class commons (independent draws from combined illu+rune+wiz pool)
+        deck.push(...sample(OMN_ANY_CLASS_COMMON, 3));
+
+        // 1 wildcard common — anything in the common tier (incl equipment, lightning/generic)
+        const wildCard = sample(OMN_ANY_COMMON, 1)[0];
+        if (OMN_COMMON_EQUIPMENT.includes(wildCard)) {
+          equipment.push(wildCard);
+        } else {
+          deck.push(wildCard);
+        }
 
         // 3 Lightning/Generic commons
         deck.push(...sample(OMN_LIGHTNING_GENERIC_COMMON, 3));
