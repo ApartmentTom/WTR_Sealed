@@ -34,7 +34,6 @@
   <button onclick="copyToClipboard()" style="float: right">Copy to Clipboard</button>
   <a id="fabraryLink" href="https://fabrary.net/decks?tab=import" target="_blank"><button alt="Import to Fabrary" style="padding: 0.5rem; float: right"><img style="height: 1.9rem" src="https://prod-content.fabrary.io/logos/light-small.webp"></button></a>
   <pre id="output"></pre>
-
   <script>
     function sample(array, count) {
       const copy = [...array];
@@ -45,36 +44,30 @@
       }
       return result;
     }
-
     //--- WTR CARD LIST ---
     const WTR_LEGENDARY = ["Scabskin Leathers", "Tectonic Plating", "Mask of Momentum", "Braveforge Bracers", "Fyendal's Spring Tunic"];
     const WTR_MAJESTIC = ["Alpha Rampage (red)", "Bloodrush Bellow (yellow)", "Crippling Crush (red)", "Spinal Crush (red)", "Lord of Wind (blue)", "Ancestral Empowerment (red)", "Glint the Quicksilver (blue)", "Steelblade Supremacy (red)", "Enlightened Strike (red)", "Tome of Fyendal (yellow)"];
     const WTR_SUPER = ["Reckless Swing (blue)", "Sand Sketched Plan (blue)", "Bone Head Barrier (yellow)", "Cranial Crush (blue)", "Forged for War (yellow)", "Show Time! (blue)", "Mugenshi: RELEASE (blue)", "Hurricane Technique (yellow)", "Pounding Gale (red)", "Rout (red)", "Singing Steelblade (yellow)", "Ironsong Determination (yellow)", "Last Ditch Effort (blue)", "Crazy Brew (blue)", "Rememberance (yellow)"];
-
     const BRUTE_RARE = ["Breakneck Battery (red)", "Breakneck Battery (yellow)", "Breakneck Battery (blue)", "Savage Feast (red)", "Savage Feast (yellow)", "Savage Feast (blue)", "Barraging Beatdown (red)", "Barraging Beatdown (yellow)", "Barraging Beatdown (blue)"];
     const GUARDIAN_RARE = ["Disable (red)", "Disable (yellow)", "Disable (blue)", "Staunch Response (red)", "Staunch Response (yellow)", "Staunch Response (blue)", "Blessing of Deliverance (red)", "Blessing of Deliverance (yellow)", "Blessing of Deliverance (blue)"];
     const NINJA_RARE = ["Fluster Fist (red)", "Fluster Fist (yellow)", "Fluster Fist (blue)", "Blackout Kick (red)", "Blackout Kick (yellow)", "Blackout Kick	(blue)", "Flic Flak (red)", "Flic Flak (yellow)", "Flic Flak (blue)"];
     const WARRIOR_RARE = ["Overpower (red)", "Overpower (yellow)", "Overpower (blue)", "Steelblade Shunt (red)", "Steelblade Shunt (yellow)", "Steelblade Shunt (blue)", "Warrior's Valor (red)", "Warrior's Valor (yellow)", "Warrior's Valor (blue)"];
     const WTR_GENERIC_RARE_D = ["Snatch (red)", "Snatch (yellow)", "Snatch (blue)", "Energy Potion (blue)", "Potion of Strength (blue)", "Timesnap Potion (blue)", "Sigil of Solace (red)", "Sigil of Solace (yellow)", "Sigil of Solace (blue)", "Drone of Brutality (red)", "Drone of Brutality (yellow)", "Drone of Brutality (blue)"];
     const WTR_GENERIC_RARE = ["Snatch (red)", "Snatch (yellow)", "Snatch (blue)", "Energy Potion (blue)", "Potion of Strength (blue)", "Timesnap Potion (blue)", "Sigil of Solace (red)", "Sigil of Solace (yellow)", "Sigil of Solace (blue)"];
-
     const WTR_ALL_RARES_D = [...BRUTE_RARE, ...GUARDIAN_RARE, ...NINJA_RARE, ...WARRIOR_RARE, ...WTR_GENERIC_RARE_D];
     const WTR_ALL_RARES = [...BRUTE_RARE, ...GUARDIAN_RARE, ...NINJA_RARE, ...WARRIOR_RARE, ...WTR_GENERIC_RARE];
-
     const BRUTE_COMMON = ["Savage Swing (red)", "Savage Swing (yellow)", "Savage Swing (blue)", "Pack Hunt (red)", "Pack Hunt (yellow)", "Pack Hunt (blue)", "Smash Instinct (red)", "Smash Instinct (yellow)", "Smash Instinct (blue)", "Wrecker Romp (red)", "Wrecker Romp (yellow)", "Wrecker Romp (blue)", "Awakening Bellow (red)", "Awakening Bellow (yellow)", "Awakening Bellow (blue)", "Primeval Bellow (red)", "Primeval Bellow (yellow)", "Primeval Bellow (blue)"];
     const GUARDIAN_COMMON = ["Buckling Blow (red)", "Buckling Blow (yellow)", "Buckling Blow (blue)", "Cartilage Crush (red)", "Cartilage Crush (yellow)", "Cartilage Crush (blue)", "Crush Confidence (red)", "Crush Confidence (yellow)", "Crush Confidence (blue)", "Debilitate (red)", "Debilitate (yellow)", "Debilitate (blue)", "Emerging Power (red)", "Emerging Power (yellow)", "Emerging Power (blue)", "Stonewall Confidence (red)", "Stonewall Confidence (yellow)", "Stonewall Confidence (blue)"];
     const NINJA_COMMON = ["Leg Tap (red)","Leg Tap (yellow)","Leg Tap (blue)","Open the Center (red)", "Open the Center (yellow)", "Open the Center (blue)","Head Jab (red)", "Head Jab (yellow)", "Head Jab (blue)", "Rising Knee Thrust (red)", "Rising Knee Thrust (yellow)", "Rising Knee Thrust (blue)", "Surging Strike (red)", "Surging Strike (yellow)", "Surging Strike (blue)", "Whelming Gustwave (red)", "Whelming Gustwave (yellow)", "Whelming Gustwave (blue)"];
     const WARRIOR_COMMON = ["Ironsong Response (red)", "Ironsong Response (yellow)", "Ironsong Response (blue)", "Biting Blade (red)", "Biting Blade (yellow)", "Biting Blade (blue)", "Stroke of Foresight (red)", "Stroke of Foresight (yellow)", "Stroke of Foresight (blue)", "Sharpen Steel (red)", "Sharpen Steel (yellow)", "Sharpen Steel (blue)", "Driving Blade (red)", "Driving Blade (yellow)", "Driving Blade (blue)", "Nature's Path Pilgrimage (red)", "Nature's Path Pilgrimage (yellow)", "Nature's Path Pilgrimage (blue)"];
-
     const WTR_CLASS_COMMON = [...BRUTE_COMMON, ...GUARDIAN_COMMON, ...NINJA_COMMON, ...WARRIOR_COMMON];
-    
+
     const WTR_CLASS_POOLS = [
         BRUTE_COMMON,
         GUARDIAN_COMMON,
         NINJA_COMMON,
         WARRIOR_COMMON,
     ];
-
     const WTR_POOL_NAMES = [
         "Brute",
         "Guardian",
@@ -82,39 +75,33 @@
         "Warrior",
         "Generic",
     ];
-    
+
     const WTR_GENERIC_COMMON = ["Barraging Brawnhide (red)", "Barraging Brawnhide (yellow)", "Barraging Brawnhide (blue)", "Demolition Crew (red)", "Demolition Crew (yellow)", "Demolition Crew (blue)", "Flock of the Feather Walkers (red)", "Flock of the Feather Walkers (yellow)", "Flock of the Feather Walkers (blue)", "Nimble Strike (red)", "Nimble Strike (yellow)", "Nimble Strike (blue)", "Raging Onslaught (red)", "Raging Onslaught (yellow)", "Raging Onslaught (blue)", "Scar for a Scar (red)", "Scar for a Scar (yellow)", "Scar for a Scar (blue)", "Scour the Battlescape (red)", "Scour the Battlescape (yellow)", "Scour the Battlescape (blue)", "Regurgitating Slog (red)", "Regurgitating Slog (yellow)", "Regurgitating Slog (blue)", "Wounded Bull (red)", "Wounded Bull (yellow)", "Wounded Bull (blue)", "Wounding Blow (red)", "Wounding Blow (yellow)", "Wounding Blow (blue)", "Pummel (red)", "Pummel (yellow)", "Pummel (blue)", "Razor Reflex (red)", "Razor Reflex (yellow)", "Razor Reflex (blue)", "Unmovable (red)", "Unmovable (yellow)", "Unmovable (blue)", "Sink Below (red)", "Sink Below (yellow)", "Sink Below (blue)", "Nimblism (red)", "Nimblism (yellow)", "Nimblism (blue)", "Sloggism (red)", "Sloggism (yellow)", "Sloggism (blue)"];
     const WTR_CLASS_EQUIPMENT = ["Barkbone Strapping", "Helm of Isen's Peak", "Breaking Scales", "Refraction Bolters"];
     const WTR_GENERIC_EQUIPMENT = ["Hope Merchant's Hood", "Heartened Cross Strap", "Goliath Gauntlet", "Snapdragon Scalers", "Ironrot Helm", "Ironrot Plate", "Ironrot Gauntlet", "Ironrot Legs"];
     const WTR_COMMON_EQUIPMENT = [...WTR_CLASS_EQUIPMENT, ...WTR_GENERIC_EQUIPMENT];
-
     // --- ARC CARD LIST ---
     const ARC_LEGENDARY = ["Teklo Foundry Heart", "Skullbone Crosswrap", "Grasp of the Arknight", "Storm Striders", "Arcanite Skullcap"];
     const ARC_MAJESTIC = ["High Octane (red)", "Teklo Core (blue)", "Red in the Ledger (red)", "Three of a Kind (red)", "Arknight Ascendancy (red)", "Mordred Tide (red)", "Blazing Aether (red)", "Sonic Boom (yellow)", "Command and Conquer (red)", "Art of War (yellow)"];
     const ARC_SUPER = ["Maximum Velocity (red)", "Spark of Genius (yellow)", "Induction Chamber (red)", "Endless Arrow (red)", "Nock the Deathwhistle (blue)", "Rapid Fire (yellow)", "Ninth Blade of the Blood Oath (yellow)", "Become the Arknight (blue)", "Tome of the Arknight (blue)", "Forked Lightning (red)", "Lesson in Lava (yellow)", "Tome of Aetherwind (red)", "Pursuit of Knowledge (blue)", "Chains of Eminence (red)", "Rusted Relic (blue)"];
-
     const MECHANOLOGIST_RARE = ["Pedal to the Metal (red)", "Pedal to the Metal (yellow)", "Pedal to the Metal (blue)", "Pour the Mold (red)", "Pour the Mold (yellow)", "Pour the Mold (blue)", "Aether Sink (yellow)", "Cognition Nodes (blue)", "Convection Amplifier (red)"];
     const RANGER_RARE = ["Take Cover (red)", "Take Cover (yellow)", "Take Cover (blue)", "Silver the Tip (red)", "Silver the Tip (yellow)", "Silver the Tip (blue)", "Take Aim (red)", "Take Aim (yellow)", "Take Aim (blue)"];
     const RUNEBLADE_RARE = ["Spellblade Assault (red)", "Spellblade Assault (yellow)", "Spellblade Assault (blue)", "Reduce to Runechant (red)", "Reduce to Runechant (yellow)", "Reduce to Runechant (blue)", "Oath of the Arknight (red)", "Oath of the Arknight (yellow)", "Oath of the Arknight (blue)"];
     const WIZARD_RARE = ["Absorb in Aether (red)", "Absorb in Aether (yellow)", "Absorb in Aether (blue)", "Aether Spindle (red)", "Aether Spindle (yellow)", "Aether Spindle (blue)", "Stir the Aetherwinds (red)", "Stir the Aetherwinds (yellow)", "Stir the Aetherwinds (blue)"];
     const ARC_GENERIC_RARE = ["Life for a Life (red)", "Life for a Life (yellow)", "Life for a Life (blue)", "Enchanting Melody (red)", "Enchanting Melody (yellow)", "Enchanting Melody (blue)", "Plunder Run (red)", "Plunder Run (yellow)", "Plunder Run (blue)", "Eirina's Prayer (red)", "Eirina's Prayer (yellow)", "Eirina's Prayer (blue)"];
-
     const ARC_ALL_RARES = [...MECHANOLOGIST_RARE, ...RANGER_RARE, ...RUNEBLADE_RARE, ...WIZARD_RARE, ...ARC_GENERIC_RARE];
-
     const MECHANOLOGIST_COMMON = ["Over Loop (red)", "Over Loop (yellow)", "Over Loop (blue)", "Throttle (red)", "Throttle (yellow)", "Throttle (blue)", "Zero to Sixty (red)", "Zero to Sixty (yellow)", "Zero to Sixty (blue)", "Zipper Hit (red)", "Zipper Hit (yellow)", "Zipper Hit (blue)", "Locked and Loaded (red)", "Locked and Loaded (yellow)", "Locked and Loaded (blue)", "Dissipation Shield (yellow)", "Hyper Driver (red)", "Optekal Monocle (blue)"];
     const RANGER_COMMON = ["Head Shot (red)", "Head Shot (yellow)", "Head Shot (blue)", "Hamstring Shot (red)", "Hamstring Shot (yellow)", "Hamstring Shot (blue)", "Ridge Rider Shot (red)", "Ridge Rider Shot (yellow)", "Ridge Rider Shot (blue)", "Salvage Shot (red)", "Salvage Shot (yellow)", "Salvage Shot (blue)", "Searing Shot (red)", "Searing Shot (yellow)", "Searing Shot (blue)", "Sic 'Em Shot (red)", "Sic 'Em Shot (yellow)", "Sic 'Em Shot (blue)"];
     const RUNEBLADE_COMMON = ["Amplify the Arknight (red)", "Amplify the Arknight (yellow)", "Amplify the Arknight (blue)","Drawn to the Dark Dimension (red)", "Drawn to the Dark Dimension (yellow)", "Drawn to the Dark Dimension (blue)", "Rune Flash (red)", "Rune Flash (yellow)", "Rune Flash (blue)", "Spellblade Strike (red)", "Spellblade Strike (yellow)", "Spellblade Strike (blue)", "Bloodspill Invocation (red)", "Bloodspill Invocation (yellow)", "Bloodspill Invocation (blue)", "Read the Runes (red)", "Read the Runes (yellow)", "Read the Runes (blue)"];
     const WIZARD_COMMON = ["Aether Flare (red)", "Aether Flare (yellow)", "Aether Flare (blue)", "Index (red)", "Index (yellow)", "Index (blue)", "Reverberate (red)", "Reverberate (yellow)", "Reverberate (blue)", "Scalding Rain (red)", "Scalding Rain (yellow)", "Scalding Rain (blue)", "Zap (red)", "Zap (yellow)", "Zap (blue)", "Voltic Bolt (red)", "Voltic Bolt (yellow)", "Voltic Bolt (blue)"];
-
     const ARC_CLASS_COMMON = [...MECHANOLOGIST_COMMON, ...RANGER_COMMON, ...RUNEBLADE_COMMON, ...WIZARD_COMMON];
-    
+
     const ARC_CLASS_POOLS = [
         MECHANOLOGIST_COMMON,
         RANGER_COMMON,
         RUNEBLADE_COMMON,
         WIZARD_COMMON,
     ];
-
     const ARC_POOL_NAMES = [
         "Mechanologist",
         "Ranger",
@@ -122,12 +109,11 @@
         "Wizard",
         "Generic",
     ];
-    
+
     const ARC_GENERIC_COMMON = ["Back Alley Breakline (red)", "Back Alley Breakline (yellow)", "Back Alley Breakline (blue)", "Cadaverous Contraband (red)", "Cadaverous Contraband (yellow)", "Cadaverous Contraband (blue)", "Fervent Forerunner (red)", "Fervent Forerunner (yellow)", "Fervent Forerunner (blue)", "Moon Wish (red)", "Moon Wish (yellow)", "Moon Wish (blue)", "Push the Point (red)", "Push the Point (yellow)", "Push the Point (blue)", "Ravenous Rabble (red)", "Ravenous Rabble (yellow)", "Ravenous Rabble (blue)", "Rifting (red)", "Rifting (yellow)", "Rifting (blue)", "Vigor Rush (red)", "Vigor Rush (yellow)", "Vigor Rush (blue)", "Fate Foreseen (red)", "Fate Foreseen (yellow)", "Fate Foreseen (blue)", "Come to Fight (red)", "Come to Fight (yellow)", "Come to Fight (blue)", "Force Sight (red)", "Force Sight (yellow)", "Force Sight (blue)", "Lead the Charge (red)", "Lead the Charge (yellow)", "Lead the Charge (blue)", "Sun Kiss (red)", "Sun Kiss (yellow)", "Sun Kiss (blue)", "Whisper of the Oracle (red)", "Whisper of the Oracle (yellow)", "Whisper of the Oracle (blue)"];
     const ARC_CLASS_EQUIPMENT = ["Achilles Accelerator", "Bull's Eye Bracers", "Crown of Dichotomy", "Robe of Rapture"];
     const ARC_GENERIC_EQUIPMENT = ["Talismanic Lens", "Vest of the First Fist", "Bracers of Belief", "Mage Master Boots", "Nullrune Hood", "Nullrune Robe", "Nullrune Gloves", "Nullrune Boots"];
     const ARC_COMMON_EQUIPMENT = [...ARC_CLASS_EQUIPMENT, ...ARC_GENERIC_EQUIPMENT];
-
     // --- MPG CARD LIST ---
     // Note that the full list of MPG cards are not included, only the ones relevant for CSP
     const MPG_COMMON_EQUIPMENT = ["Helm of Isen's Peak", "Richter Scale", "Gauntlet of Boulderhold", "Craterhoof", "Hoarding of Denial", "Rotten Old Buckler", "Steelbraid Buckler", "Tremor of Resistance", "Hope Merchant's Hood", "Heartened Cross Strap", "Goliath Gauntlet", "Time Skippers", "Ironrot Helm", "Ironrot Plate", "Ironrot Gauntlet", "Ironrot Legs"];
@@ -135,7 +121,6 @@
     const MPG_MAJESTIC = ["Break Stature (yellow)", "Clash of Bravado (yellow)", "Headbutt (blue)", "Pec Perfect (red)", "Put 'em in Their Place (red)", "Solid Ground (blue)", "Leave a Dent (blue)", "Visit Anvilheim (blue)", "Daily Grind (blue)", "Seismic Shudder (blue)", "Seismic Eruption (yellow)", "Test of Iron Grip (red)", "Call for Backup (red)", "Captain of the Guard (blue)", "Fearless Confrontation (blue)"];
     const MPG_RARE = ["Blinding of the Old Ones (red)", "Disenchantment of the Old Ones (red)", "Smelting of the Old Ones (red)", "Annexation of All Things Known (yellow)", "Annexation of Grandeur (yellow)", "Annexation of the Forge (yellow)", "Fault Line (red)", "Hostile Encroachment (red)", "Renounce Grandeur (red)", "Aftershock (red)", "Aftershock (yellow)", "Aftershock (blue)", "Little Big Foot (red)", "Little Big Foot (yellow)", "Little Big Foot (blue)", "Macho Grande (red)", "Macho Grande (yellow)", "Macho Grande (blue)", "Draw a Crowd (blue)", "Promising Terrain (blue)", "Tectonic Instability (blue)", "Clash of Heads (yellow)", "Clash of Chests (yellow)","Clash of Arms (yellow)","Clash of Legs (yellow)", "Clash of Shields (yellow)"];
     const MPG_COMMON = ["Buckling Blow (red)", "Buckling Blow (yellow)", "Buckling Blow (blue)", "Cartilage Crush (red)", "Cartilage Crush (yellow)", "Cartilage Crush (blue)", "Chokeslam (red)", "Chokeslam (yellow)", "Chokeslam (blue)", "Clash of Mountains (red)", "Clash of Mountains (yellow)", "Clash of Mountains (blue)", "Crush Confidence (red)", "Crush Confidence (yellow)", "Crush Confidence (blue)", "Crush the Weak (red)", "Crush the Weak (yellow)", "Crush the Weak (blue)", "Debilitate (red)", "Debilitate (yellow)", "Debilitate (blue)", "Disable (red)", "Disable (yellow)", "Disable (blue)", "Flatten the Field (red)", "Flatten the Field (yellow)", "Flatten the Field (blue)", "Grind them Down (red)", "Grind them Down (yellow)", "Grind them Down (blue)", "Rubble Raiser (red)", "Rubble Raiser (yellow)", "Rubble Raiser (blue)", "Thump (red)", "Thump (yellow)", "Thump (blue)", "Thunder Quake (red)", "Thunder Quake (yellow)", "Thunder Quake (blue)", "Overswing (red)", "Overswing (yellow)", "Overswing (blue)", "Seismic Stir (red)", "Seismic Stir (yellow)", "Seismic Stir (blue)", "Embolden (red)", "Embolden (yellow)", "Embolden (blue)", "Emerging Power (red)", "Emerging Power (yellow)", "Emerging Power (blue)", "Geyser of Seismic Stirrings (red)", "Geyser of Seismic Stirrings (yellow)", "Geyser of Seismic Stirrings (blue)", "Stonewall Confidence (red)", "Stonewall Confidence (yellow)", "Stonewall Confidence (blue)", "Crash and Bash (red)", "Crash and Bash (yellow)", "Crash and Bash (blue)"];
-
     // --- OMN CARD LIST ---
 // Maps card names with pitch indicator to Fabrary OMN### print codes.
 // Names with " (red)/(yellow)/(blue)" suffix represent pitch 1/2/3 respectively.
@@ -154,7 +139,6 @@ const OMN_PRINT_CODES = {
   "Nourishing Glow (blue)": "OMN038",
   "Pulsing Cardia (red)": "OMN021", "Pulsing Cardia (yellow)": "OMN022", "Pulsing Cardia (blue)": "OMN023",
   "Shattering Flowtide (red)": "OMN024", "Shattering Flowtide (yellow)": "OMN025", "Shattering Flowtide (blue)": "OMN026",
-
   // Runeblade commons
   "Destructive Fleetfoot (red)": "OMN062", "Destructive Fleetfoot (yellow)": "OMN063", "Destructive Fleetfoot (blue)": "OMN064",
   "Electryn Joltstep (red)": "OMN080", "Electryn Joltstep (yellow)": "OMN081", "Electryn Joltstep (blue)": "OMN082",
@@ -164,7 +148,6 @@ const OMN_PRINT_CODES = {
   "Singeing Flowstride (red)": "OMN071", "Singeing Flowstride (yellow)": "OMN072", "Singeing Flowstride (blue)": "OMN073",
   "Stunning Swipe (red)": "OMN074", "Stunning Swipe (yellow)": "OMN075", "Stunning Swipe (blue)": "OMN076",
   "Voltbound Duality (red)": "OMN077", "Voltbound Duality (yellow)": "OMN078", "Voltbound Duality (blue)": "OMN079",
-
   // Wizard commons
   "Comet Collision (red)": "OMN109", "Comet Collision (yellow)": "OMN110", "Comet Collision (blue)": "OMN111",
   "Constella Contemplation (yellow)": "OMN130",
@@ -176,7 +159,6 @@ const OMN_PRINT_CODES = {
   "Meteoric Impact (red)": "OMN118", "Meteoric Impact (yellow)": "OMN119", "Meteoric Impact (blue)": "OMN120",
   "Nebula Duality (red)": "OMN121", "Nebula Duality (yellow)": "OMN122", "Nebula Duality (blue)": "OMN123",
   "Tap Lessons Past (red)": "OMN124", "Tap Lessons Past (yellow)": "OMN125", "Tap Lessons Past (blue)": "OMN126",
-
   // Lightning/Generic commons
   "Astral Assault (red)": "OMN160", "Astral Assault (yellow)": "OMN161", "Astral Assault (blue)": "OMN162",
   "Brush Off (red)": "OMN222", "Brush Off (yellow)": "OMN223", "Brush Off (blue)": "OMN224",
@@ -200,7 +182,6 @@ const OMN_PRINT_CODES = {
   "Stormwhirl (blue)": "OMN192",
   "Thunderous Retort (red)": "OMN196", "Thunderous Retort (yellow)": "OMN197", "Thunderous Retort (blue)": "OMN198",
   "Volatile Fluxor (red)": "OMN178", "Volatile Fluxor (yellow)": "OMN179", "Volatile Fluxor (blue)": "OMN180",
-
   // Common equipment
   "Constella Tiara": "OMN142",
   "Constella Waves": "OMN097",
@@ -216,7 +197,6 @@ const OMN_PRINT_CODES = {
   "Seeker's Hood": "OMN205",
   "Seeker's Leggings": "OMN208",
   "Seeker's Mitts": "OMN207",
-
   // Illusionist rares
   "Blink of an Eye (red)": "OMN006",
   "Clear Conscience (red)": "OMN041", "Clear Conscience (yellow)": "OMN042", "Clear Conscience (blue)": "OMN043",
@@ -225,7 +205,6 @@ const OMN_PRINT_CODES = {
   "Fraying Lifeforce (red)": "OMN007",
   "Polarus Pulse Ray (red)": "OMN009", "Polarus Pulse Ray (yellow)": "OMN010", "Polarus Pulse Ray (blue)": "OMN011",
   "Scattering Conflux (red)": "OMN008",
-
   // Runeblade rares
   "Arcanic Cunning (red)": "OMN088", "Arcanic Cunning (yellow)": "OMN089", "Arcanic Cunning (blue)": "OMN090",
   "Dashing Flashfoot (yellow)": "OMN053",
@@ -236,7 +215,6 @@ const OMN_PRINT_CODES = {
   "Mercurial Skies (red)": "OMN059", "Mercurial Skies (yellow)": "OMN060", "Mercurial Skies (blue)": "OMN061",
   "Prophetic Quickstep (yellow)": "OMN055",
   "Stinging Sprite (red)": "OMN056", "Stinging Sprite (yellow)": "OMN057", "Stinging Sprite (blue)": "OMN058",
-
   // Wizard rares
   "Aethersling (red)": "OMN134",
   "Arc Ramp (red)": "OMN100", "Arc Ramp (yellow)": "OMN101", "Arc Ramp (blue)": "OMN102",
@@ -245,7 +223,6 @@ const OMN_PRINT_CODES = {
   "Haven Veil (red)": "OMN137", "Haven Veil (yellow)": "OMN138", "Haven Veil (blue)": "OMN139",
   "Nucleus Aetherbolt (red)": "OMN135",
   "Turn to Mindfire (red)": "OMN136",
-
   // Lightning/Generic rares
   "Beckoning Brilliance (red)": "OMN148",
   "Flowing Stormstrike (red)": "OMN152",
@@ -260,7 +237,6 @@ const OMN_PRINT_CODES = {
   "Rift Breaker (red)": "OMN155", "Rift Breaker (yellow)": "OMN156", "Rift Breaker (blue)": "OMN157",
   "Visionary of Orbits (red)": "OMN151",
   "Voltic Impact (red)": "OMN154",
-
   // Majestics
   "Arcanic Reproach (blue)": "OMN052",
   "Astral Bridge (red)": "OMN098",
@@ -276,10 +252,18 @@ const OMN_PRINT_CODES = {
   "Unwinding Finality (red)": "OMN004",
 };
 
+// --- OMN DUALITY POOL ---
+// Extracted from the three class common pools — drawn as a dedicated slot in each pack.
+const OMN_DUALITY = [
+  "Nebula Duality (red)", "Nebula Duality (yellow)", "Nebula Duality (blue)",
+  "Voltbound Duality (red)", "Voltbound Duality (yellow)", "Voltbound Duality (blue)",
+  "Cosmic Duality (red)", "Cosmic Duality (yellow)", "Cosmic Duality (blue)",
+];
+
+// Illusionist commons — Cosmic Duality moved to OMN_DUALITY
 const OMN_ILLUSIONIST_COMMON = [
   "Auric Shards (red)", "Auric Shards (yellow)", "Auric Shards (blue)",
   "Circular Flowtide (yellow)",
-  "Cosmic Duality (red)", "Cosmic Duality (yellow)", "Cosmic Duality (blue)",
   "Crackle from Afar (blue)",
   "Ebbing Arcstride (red)", "Ebbing Arcstride (yellow)", "Ebbing Arcstride (blue)",
   "Elliptical Conflux (yellow)",
@@ -291,6 +275,7 @@ const OMN_ILLUSIONIST_COMMON = [
   "Shattering Flowtide (red)", "Shattering Flowtide (yellow)", "Shattering Flowtide (blue)",
 ];
 
+// Runeblade commons — Voltbound Duality moved to OMN_DUALITY
 const OMN_RUNEBLADE_COMMON = [
   "Destructive Fleetfoot (red)", "Destructive Fleetfoot (yellow)", "Destructive Fleetfoot (blue)",
   "Electryn Joltstep (red)", "Electryn Joltstep (yellow)", "Electryn Joltstep (blue)",
@@ -299,9 +284,9 @@ const OMN_RUNEBLADE_COMMON = [
   "Rush of Power (red)", "Rush of Power (yellow)", "Rush of Power (blue)",
   "Singeing Flowstride (red)", "Singeing Flowstride (yellow)", "Singeing Flowstride (blue)",
   "Stunning Swipe (red)", "Stunning Swipe (yellow)", "Stunning Swipe (blue)",
-  "Voltbound Duality (red)", "Voltbound Duality (yellow)", "Voltbound Duality (blue)",
 ];
 
+// Wizard commons — Nebula Duality moved to OMN_DUALITY
 const OMN_WIZARD_COMMON = [
   "Comet Collision (red)", "Comet Collision (yellow)", "Comet Collision (blue)",
   "Constella Contemplation (yellow)",
@@ -311,7 +296,6 @@ const OMN_WIZARD_COMMON = [
   "Enion Surge (red)", "Enion Surge (yellow)", "Enion Surge (blue)",
   "Lightning Overload (red)", "Lightning Overload (yellow)", "Lightning Overload (blue)",
   "Meteoric Impact (red)", "Meteoric Impact (yellow)", "Meteoric Impact (blue)",
-  "Nebula Duality (red)", "Nebula Duality (yellow)", "Nebula Duality (blue)",
   "Tap Lessons Past (red)", "Tap Lessons Past (yellow)", "Tap Lessons Past (blue)",
 ];
 
@@ -339,7 +323,6 @@ const OMN_LIGHTNING_GENERIC_COMMON = [
   "Thunderous Retort (red)", "Thunderous Retort (yellow)", "Thunderous Retort (blue)",
   "Volatile Fluxor (red)", "Volatile Fluxor (yellow)", "Volatile Fluxor (blue)",
 ];
-
 const OMN_COMMON_EQUIPMENT = [
   "Constella Tiara",
   "Constella Waves",
@@ -356,7 +339,6 @@ const OMN_COMMON_EQUIPMENT = [
   "Seeker's Leggings",
   "Seeker's Mitts",
 ];
-
 const OMN_ILLUSIONIST_RARE = [
   "Blink of an Eye (red)",
   "Clear Conscience (red)", "Clear Conscience (yellow)", "Clear Conscience (blue)",
@@ -366,7 +348,6 @@ const OMN_ILLUSIONIST_RARE = [
   "Polarus Pulse Ray (red)", "Polarus Pulse Ray (yellow)", "Polarus Pulse Ray (blue)",
   "Scattering Conflux (red)",
 ];
-
 const OMN_RUNEBLADE_RARE = [
   "Arcanic Cunning (red)", "Arcanic Cunning (yellow)", "Arcanic Cunning (blue)",
   "Dashing Flashfoot (yellow)",
@@ -378,7 +359,6 @@ const OMN_RUNEBLADE_RARE = [
   "Prophetic Quickstep (yellow)",
   "Stinging Sprite (red)", "Stinging Sprite (yellow)", "Stinging Sprite (blue)",
 ];
-
 const OMN_WIZARD_RARE = [
   "Aethersling (red)",
   "Arc Ramp (red)", "Arc Ramp (yellow)", "Arc Ramp (blue)",
@@ -388,7 +368,6 @@ const OMN_WIZARD_RARE = [
   "Nucleus Aetherbolt (red)",
   "Turn to Mindfire (red)",
 ];
-
 const OMN_GENERIC_RARE = [
   "Beckoning Brilliance (red)",
   "Flowing Stormstrike (red)",
@@ -404,9 +383,7 @@ const OMN_GENERIC_RARE = [
   "Visionary of Orbits (red)",
   "Voltic Impact (red)",
 ];
-
 const OMN_ALL_RARES = [...OMN_ILLUSIONIST_RARE, ...OMN_RUNEBLADE_RARE, ...OMN_WIZARD_RARE, ...OMN_GENERIC_RARE];
-
 const OMN_MAJESTIC = [
   "Arcanic Reproach (blue)",
   "Astral Bridge (red)",
@@ -421,12 +398,12 @@ const OMN_MAJESTIC = [
   "Tome of Quandaries (blue)",
   "Unwinding Finality (red)",
 ];
-
-// Foil pool — uniform sample across every non-equipment OMN card
+// Foil pool — uniform sample across every non-equipment OMN card (including duality)
 const OMN_FOIL_POOL = [
   ...OMN_ILLUSIONIST_COMMON,
   ...OMN_RUNEBLADE_COMMON,
   ...OMN_WIZARD_COMMON,
+  ...OMN_DUALITY,
   ...OMN_LIGHTNING_GENERIC_COMMON,
   ...OMN_ALL_RARES,
   ...OMN_MAJESTIC,
@@ -435,7 +412,7 @@ const OMN_FOIL_POOL = [
     function cleanCardName(card) {
       return card.replaceAll(' ', '-').replaceAll(`'`, '').replaceAll(`(`, '').replaceAll(`)`, '').toLowerCase();
     }
-      
+
     function generateDeckWTR(drone) {
       fetch('https://ipinfo.io/json')
       .then(response => response.json())
@@ -446,18 +423,18 @@ const OMN_FOIL_POOL = [
           console.log('hello kiwi');
           let deck = [];
           let equipment = [];
-    
+
           for (let i = 0; i < 6; i++) {
             // Randomly choose the class for having 1 class common in the pack (other classes will have 2 cards for a total of 7 class commons).
             const oneOfIndex = Math.floor(Math.random() * WTR_CLASS_POOLS.length);
-    
+
             WTR_CLASS_POOLS.forEach((pool, j) => {
               deck.push(...sample(pool, j === oneOfIndex ? 1 : 2));
             });
-            
+
             deck.push(...sample(WTR_GENERIC_COMMON, 4));
             equipment.push(...sample(WTR_COMMON_EQUIPMENT, 1));
-    
+
             const rareRoll = Math.random();
             if (drone) {
               if (rareRoll < 1 / 12) {
@@ -476,7 +453,7 @@ const OMN_FOIL_POOL = [
                 deck.push(...sample(WTR_ALL_RARES, 2));
               }
             }
-    
+
             const foilRoll = Math.random();
             if (foilRoll < 1 / 96) {
               equipment.push(...sample(WTR_LEGENDARY, 1));
@@ -490,12 +467,12 @@ const OMN_FOIL_POOL = [
               }
               else {
                 deck.push(...sample(WTR_ALL_RARES, 1));
-              } 
+              }
             } else {
               deck.push(...sample([...WTR_GENERIC_COMMON, ...WTR_CLASS_COMMON, ...WTR_COMMON_EQUIPMENT], 1));
             }
           }
-          
+
           var classCount = {};
           deck.forEach((card, index) => {
             // Check which class the card belongs to
@@ -512,19 +489,19 @@ const OMN_FOIL_POOL = [
             }
           });
           console.log("Class counts:", classCount);
-    
+
           const countCards = list =>
             list.reduce((acc, card) => {
               acc[card] = (acc[card] || 0) + 1;
               return acc;
             }, {});
-    
+
           const output = [];
           const fabraryOutput = [];
           const now = new Date();
           const formattedDate = now.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
           const timestamp = now.toISOString().slice(0, 19).replace(/[:T]/g, "_");
-    
+
           output.push("Player Name / ID\tWTR_UNL_SEALED");
           output.push(`Date\t${formattedDate}`);
           output.push("Event\tWTR Sealed Training");
@@ -535,7 +512,7 @@ const OMN_FOIL_POOL = [
           output.push("Result\t1st\n");
           output.push("\nArena cards\n2x Harmonized Kodachi\n1x Dawnblade\n1x Romping Club\n1x Anothos\n");
           fabraryOutput.push("WTR078","WTR078","WTR115","WTR003","WTR040");
-    
+
           output.push("Equipment:");
           for (const [card, qty] of Object.entries(countCards(equipment))) {
             output.push(`${qty}x ${card}`);
@@ -546,13 +523,12 @@ const OMN_FOIL_POOL = [
             output.push(`${qty}x ${card}`);
             fabraryOutput.push(...Array(qty).fill(cleanCardName(card)));
           }
-    
+
           document.getElementById("output").textContent = output.join("\n");
           document.getElementById("fabraryLink").href = "https://fabrary.net/decks?tab=import".concat(fabraryOutput.join("&cards="));
         }
       });
     }
-
     //-----------------------------------------
     function generateDeckARC() {
       fetch('https://ipinfo.io/json')
@@ -564,18 +540,18 @@ const OMN_FOIL_POOL = [
           console.log('hello kiwi');
           let deck = [];
           let equipment = [];
-    
+
           for (let i = 0; i < 6; i++) {
             // Randomly choose the class for having 1 class common in the pack (other classes will have 2 cards for a total of 7 class commons).
             const oneOfIndex = Math.floor(Math.random() * ARC_CLASS_POOLS.length);
-    
+
             ARC_CLASS_POOLS.forEach((pool, j) => {
               deck.push(...sample(pool, j === oneOfIndex ? 1 : 2));
             });
-            
+
             deck.push(...sample(ARC_GENERIC_COMMON, 4));
             equipment.push(...sample(ARC_COMMON_EQUIPMENT, 1));
-    
+
             const rareRoll = Math.random();
               if (rareRoll < 1 / 12) {
                 deck.push(...sample(ARC_MAJESTIC, 1), ...sample(ARC_ALL_RARES, 1));
@@ -584,7 +560,7 @@ const OMN_FOIL_POOL = [
               } else {
                 deck.push(...sample(ARC_ALL_RARES, 2));
               }
-            
+
             const foilRoll = Math.random();
             // Slightly different calculation here than for UNL WTR, because 1st packs can have a cold foil in the foil slot
             if (foilRoll < 1 / 24) {
@@ -603,13 +579,13 @@ const OMN_FOIL_POOL = [
               } else if (rainbowRoll < 3 / 168) {
                 deck.push(...sample(ARC_SUPER, 1));
               } else if (rainbowRoll < 24 / 168) {
-                deck.push(...sample(ARC_ALL_RARES, 1)); 
+                deck.push(...sample(ARC_ALL_RARES, 1));
               } else {
                 deck.push(...sample([...ARC_GENERIC_COMMON, ...ARC_CLASS_COMMON], 1));
               }
             }
           }
-          
+
           var classCount = {};
           deck.forEach((card, index) => {
             // Check which class the card belongs to
@@ -626,19 +602,19 @@ const OMN_FOIL_POOL = [
             }
           });
           console.log("Class counts:", classCount);
-    
+
           const countCards = list =>
             list.reduce((acc, card) => {
               acc[card] = (acc[card] || 0) + 1;
               return acc;
             }, {});
-    
+
           const output = [];
           const fabraryOutput = [];
           const now = new Date();
           const formattedDate = now.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
           const timestamp = now.toISOString().slice(0, 19).replace(/[:T]/g, "_");
-    
+
           output.push("Player Name / ID\tARC_1ST_SEALED");
           output.push(`Date\t${formattedDate}`);
           output.push("Event\tARC 1st Sealed Training");
@@ -649,32 +625,30 @@ const OMN_FOIL_POOL = [
           output.push("Result\t1st\n");
           output.push("\nArena cards\n1x Teklo Plasma Pistol\n1x Death Dealer\n1x Nebula Blade\n1x Crucible of Aetherweave\n");
           fabraryOutput.push("ARC003","ARC040","ARC077","ARC115");
-          
+
           output.push("Equipment:");
           for (const [card, qty] of Object.entries(countCards(equipment))) {
             output.push(`${qty}x ${card}`);
             fabraryOutput.push(...Array(qty).fill(cleanCardName(card)));
           }
-    
+
           output.push("\nDeck cards:");
           for (const [card, qty] of Object.entries(countCards(deck))) {
             output.push(`${qty}x ${card}`);
             fabraryOutput.push(...Array(qty).fill(cleanCardName(card)));
           }
-    
+
           document.getElementById("output").textContent = output.join("\n");
           document.getElementById("fabraryLink").href = "https://fabrary.net/decks?tab=import".concat(fabraryOutput.join("&cards="));
         }
       });
     }
-
     //-----------------------------------------
     function generateDeckMPG() {
           let deck = [];
           let equipment = [];
-    
-          for (let i = 0; i < 3; i++) {
 
+          for (let i = 0; i < 3; i++) {
             // Maindeck Cards
             deck.push(...sample(MPG_COMMON, 9));
             // Estimate 1 in 4 packs has a Majestic
@@ -684,7 +658,6 @@ const OMN_FOIL_POOL = [
               } else {
                 deck.push(...sample(MPG_RARE, 1));
               }
-
             // Equipment
             const equipRoll = Math.random();
             // 1 in 4 packs has a rare ("Sunkwater") in the equip slot. This estimate may be inaccurate.
@@ -693,21 +666,21 @@ const OMN_FOIL_POOL = [
               } else {
                 equipment.push(...sample(MPG_COMMON_EQUIPMENT, 1));
               }
-            
+
           }
-              
+
           const countCards = list =>
             list.reduce((acc, card) => {
               acc[card] = (acc[card] || 0) + 1;
               return acc;
             }, {});
-    
+
           const output = [];
           const fabraryOutput = [];
           const now = new Date();
           const formattedDate = now.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
           const timestamp = now.toISOString().slice(0, 19).replace(/[:T]/g, "_");
-    
+
           output.push("Player Name / ID\tMPG_CSP");
           output.push(`Date\t${formattedDate}`);
           output.push("Event\tMPG Crack Shuffle Play Sample");
@@ -718,23 +691,33 @@ const OMN_FOIL_POOL = [
           output.push("Result\t1st\n");
           output.push("\nArena cards\n1x High Riser\n");
           fabraryOutput.push("MPG003");
-          
+
           output.push("Equipment:");
           for (const [card, qty] of Object.entries(countCards(equipment))) {
             output.push(`${qty}x ${card}`);
             fabraryOutput.push(...Array(qty).fill(cleanCardName(card)));
           }
-    
+
           output.push("\nDeck cards:");
           for (const [card, qty] of Object.entries(countCards(deck))) {
             output.push(`${qty}x ${card}`);
             fabraryOutput.push(...Array(qty).fill(cleanCardName(card)));
           }
-    
+
           document.getElementById("output").textContent = output.join("\n");
           document.getElementById("fabraryLink").href = "https://fabrary.net/decks?tab=import".concat(fabraryOutput.join("&cards="));
         }
-    
+
+  // OMN pack structure (per pack):
+  //   2x Illusionist common
+  //   2x Runeblade common
+  //   2x Wizard common
+  //   3x Lightning/Generic common
+  //   1x Duality (OMN_DUALITY pool — Nebula, Voltbound, or Cosmic)
+  //   1x Equipment
+  //   1x Rare
+  //   1x Rare or Majestic (1/7 chance majestic)
+  //   1x Rainbow foil (any non-equipment card)
   function generateDeckOMN() {
   fetch('https://ipinfo.io/json')
   .then(response => response.json())
@@ -752,50 +735,26 @@ const OMN_FOIL_POOL = [
         OMN_WIZARD_COMMON,
       ];
 
-      // Combined illu+rune+wiz pool for the "3 any class" slot
-      const OMN_ANY_CLASS_COMMON = [
-        ...OMN_ILLUSIONIST_COMMON,
-        ...OMN_RUNEBLADE_COMMON,
-        ...OMN_WIZARD_COMMON,
-      ];
-
-      // Full common pool for the "1 anything" wildcard slot (incl. equipment + lightning/generic)
-      const OMN_ANY_COMMON = [
-        ...OMN_ILLUSIONIST_COMMON,
-        ...OMN_RUNEBLADE_COMMON,
-        ...OMN_WIZARD_COMMON,
-        ...OMN_LIGHTNING_GENERIC_COMMON,
-        ...OMN_COMMON_EQUIPMENT,
-      ];
-
       // 8 packs per OMN sealed pool
       for (let i = 0; i < 8; i++) {
-        // 1 guaranteed from each class pool
+        // 2 commons from each class pool
         OMN_CLASS_POOLS.forEach(pool => {
-          deck.push(...sample(pool, 1));
+          deck.push(...sample(pool, 2));
         });
-
-        // 3 wild class commons (independent draws from combined illu+rune+wiz pool)
-        deck.push(...sample(OMN_ANY_CLASS_COMMON, 3));
-
-        // 1 wildcard common — anything in the common tier (incl equipment, lightning/generic)
-        const wildCard = sample(OMN_ANY_COMMON, 1)[0];
-        if (OMN_COMMON_EQUIPMENT.includes(wildCard)) {
-          equipment.push(wildCard);
-        } else {
-          deck.push(wildCard);
-        }
 
         // 3 Lightning/Generic commons
         deck.push(...sample(OMN_LIGHTNING_GENERIC_COMMON, 3));
 
-        // 1 equipment
+        // 1 Duality card (Nebula Duality, Voltbound Duality, or Cosmic Duality)
+        deck.push(...sample(OMN_DUALITY, 1));
+
+        // 1 Equipment
         equipment.push(...sample(OMN_COMMON_EQUIPMENT, 1));
 
-        // Rare slot 1: always rare
+        // 1 guaranteed rare
         deck.push(...sample(OMN_ALL_RARES, 1));
 
-        // Rare slot 2: 1/7 majestic, else rare
+        // 1 rare or majestic (1/7 chance majestic)
         const rareRoll = Math.random();
         if (rareRoll < 1 / 7) {
           deck.push(...sample(OMN_MAJESTIC, 1));
@@ -803,7 +762,7 @@ const OMN_FOIL_POOL = [
           deck.push(...sample(OMN_ALL_RARES, 1));
         }
 
-        // Rainbow foil slot (no equipment in foil pool)
+        // 1 Rainbow foil (any non-equipment card)
         deck.push(...sample(OMN_FOIL_POOL, 1));
       }
 
@@ -817,7 +776,7 @@ const OMN_FOIL_POOL = [
         } else if (OMN_WIZARD_COMMON.includes(card) || OMN_WIZARD_RARE.includes(card)) {
           classCount["Wizard"] = (classCount["Wizard"] || 0) + 1;
         } else {
-          classCount["Lightning/Generic/Maj/Equip"] = (classCount["Lightning/Generic/Maj/Equip"] || 0) + 1;
+          classCount["Lightning/Generic/Duality/Maj/Equip"] = (classCount["Lightning/Generic/Duality/Maj/Equip"] || 0) + 1;
         }
       });
       console.log("Class counts:", classCount);
@@ -852,20 +811,17 @@ const OMN_FOIL_POOL = [
         output.push(`${qty}x ${card}`);
         fabraryOutput.push(...Array(qty).fill(fabraryCode(card)));
       }
-
       output.push("\nDeck cards:");
       for (const [card, qty] of Object.entries(countCards(deck))) {
         output.push(`${qty}x ${card}`);
         fabraryOutput.push(...Array(qty).fill(fabraryCode(card)));
       }
-
       document.getElementById("output").textContent = output.join("\n");
       document.getElementById("fabraryLink").href = "https://fabrary.net/decks?tab=import".concat(fabraryOutput.join("&cards="));
     }
   });
 }
 
-    
     function copyToClipboard() {
       const output = document.getElementById("output").textContent;
       navigator.clipboard.writeText(output).then(() => {
